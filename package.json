@@ -4,6 +4,8 @@
     "description": "",
     "main": "index.js",
     "scripts": {
+        "test": "cypress run --spec \"**/*.feature\"",
+        "test:all": "cypress run --spec \"**/*.features\"",
         "cypress": "cypress run",
         "cypress:open": "cypress open",
         "build": "webpack",
@@ -21,7 +23,8 @@
         "json-server": "0.16.1",
         "react": "16.13.1",
         "react-dom": "16.13.1",
-        "react-router-dom": "4.2.2"
+        "react-router-dom": "4.2.2",
+        "superagent": "^6.1.0"
     },
     "devDependencies": {
         "@cucumber/cucumber": "^8.0.0-rc.1",
@@ -37,5 +40,8 @@
         "jest": "^27.4.5",
         "style-loader": "0.19.1",
         "webpack": "3.12.0"
+    },
+    "cypress-cucumber-preprocessor": {
+        "nonGlobalStepDefinitions": true
     }
 }
