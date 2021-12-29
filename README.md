@@ -1,6 +1,4 @@
-# Build and test an application using Cypress
-
-This repository is the starting point for an official Cypress tutorial. We encourage you to clone this repo and follow along.
+# How to quickly integrate cucumber, cypress and jest for your test to implement full stack testing
 
 The purpose of this repository is to create a cheatsheet for testing
 
@@ -12,23 +10,27 @@ User Stories
 Time start: 12:22 pm 
 
 To Do List 
-* [ ] install all needed repositores 
+* [x ] install all needed repositores 
 ```npm install @cucumber/cucumber
 
 ```
 ```npm install cypress```
 
-```npm install --save-dev cypress-cucumber-preprocessor
+```npm install assert
 
 ```
-```npm install assert```
+```npm install superagent --dev```
 
-* [ ] add this to cypress/plugins/index.js
+* [ x] add in scripts
 
-  + [ ] Create feature files in cypress/integration
+```
+
+```
+
+* [x ] Create feature files in cypress/integration
   
 
-```
+```gherkin
   Feature: Google Main Page
 
   I want to open a search engine
@@ -39,10 +41,7 @@ To Do List
     Then I see "Google" in the title
   ```
 
-* [ ] add config 
-cucumber.js at root
-
-* [ ] write scenario
+* [ x] write scenario
 
 ```
 Feature: Cheatsheet: Add tasks to create cheatsheet so it's easier for everyone to learn and get shit done
@@ -54,16 +53,38 @@ Feature: Cheatsheet: Add tasks to create cheatsheet so it's easier for everyone 
     Then they can see all the tasks related to that problem / technology
 ```
 
-* [ ] run vscode extension: generate steps from feature file 
-
-* [ ] add config to cypress.json
+* [ x] run vscode extension: generate steps from feature file 
+* [x ] in that file, replace all given when with it (run regularly because the extensions don't let you visualize what's happening)
 
 ```
  ./node_modules/.bin/cypress/open
 ```
 
+* [ x] npm run cypress:open
+
 * [ ] Add test to get 
+
+Think about what the user will actually be affected by. 
+
+E.g., 
+* What would be bad if it was broken?
+
+* Being able to post an item 
+
+- 
+- 
+
 * [ ] Add test to post 
+
+* [x ] look at example from cypress_examples
+* [ x] run the example, make sure it works
+* [ ] fill in anything you're missing (e.g., if they're testing for something and you dont have it, follow the repository)
+* [ x] check your database 
+* [ x] make sure input names are the same (this is what you're going to be referring to when testing)
+* [ ] 
+
+follow the exact inputs 
+
 * [ ] Add test to edit
 * [ ] add test to delete 
 
