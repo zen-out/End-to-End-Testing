@@ -1,13 +1,25 @@
 {
   "dimmer.enabled": true,
   "files.exclude": {
-    "db.json": true,
-    "json-server.json": true,
-    "LICENSE": true,
-    "package-lock.json": true,
-    "package.json": true,
-    "README.md": true,
-    "routes.json": true,
-    "webpack.config.js": true
-  }
+    "routes.json": false,
+    "webpack.config.js": false,
+    "feature": false,
+    "node_modules": false,
+    "src": false,
+    "src/components": false,
+    "src/lib": false,
+    "src/index.html": false,
+    "src/index.js": false,
+    "src/styles.css": false,
+    ".gitignore": false,
+    "cucumber.js": false,
+    "cypress.json": false,
+    "cypress_examples": false,
+    "db.json": false,
+    "json-server.json": false,
+    "LICENSE": false,
+    "package-lock.json": false,
+    "package.json": false
+  },
+  "workspace.isHidden": false
 }

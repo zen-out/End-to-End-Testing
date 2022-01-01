@@ -11,15 +11,15 @@ const app = express()
 const port = minimist(process.argv.slice(2)).port
 
 const matchesUsernameAndPassword = (body = {}) => {
-  return body.username === 'jane.lane' && body.password === 'password123'
+    return body.username === 'jane.lane' && body.password === 'password123'
 }
 
 const ensureLoggedIn = (req, res, next) => {
-  if (req.session.user) {
-    next()
-  } else {
-    res.redirect('/unauthorized')
-  }
+    if (req.session.user) {
+        next()
+    } else {
+        res.redirect('/unauthorized')
+    }
 }
 
 // parse JSON bodies
@@ -31,10 +31,10 @@ app.use(morgan('dev'))
 // store a session cookie called
 // 'cypress-session-cookie'
 app.use(session({
-  name: 'cypress-session-cookie',
-  secret: 'sekret',
-  resave: false,
-  saveUninitialized: false,
+    name: 'cypress-session-cookie',
+    secret: 'sekret',
+    resave: false,
+    saveUninitialized: false,
 }))
 
 // app.use((req, res, next) => {
@@ -49,64 +49,68 @@ app.get('/', (req, res) => res.redirect('/login'))
 
 // this is the standard HTML login page
 app.get('/login', (req, res) => {
-  res.render('./login.hbs')
+    res.render('./login.hbs')
 })
 
 // specifies that the jsonParser should only be
 // used on the one route when its coming from a JSON request
 app.post('/login', jsonParser, (req, res) => {
-  // if this matches the secret username and password
-  if (matchesUsernameAndPassword(req.body)) {
-    req.session.user = 'jane.lane'
+    // if this matches the secret username and password
+    if (matchesUsernameAndPassword(req.body)) {
+        req.session.user = 'jane.lane'
 
-    // respond with how we should redirect
-    res.json({ redirect: '/dashboard' })
-  } else {
-    // else send back JSON error
-    // with unprocessable entity
-    // status code
-    res.status(422).json({
-      error: 'Username and/or password is incorrect',
-    })
-  }
+        // respond with how we should redirect
+        res.json({
+            redirect: '/dashboard'
+        })
+    } else {
+        // else send back JSON error
+        // with unprocessable entity
+        // status code
+        res.status(422).json({
+            error: 'Username and/or password is incorrect',
+        })
+    }
 })
 
 app.post('/slow-login', jsonParser, (req, res) => {
-  // if this matches the secret username and password
-  if (matchesUsernameAndPassword(req.body)) {
-    // login the user after a delay
-    setTimeout(function () {
-      req.session.user = 'jane.lane'
+    // if this matches the secret username and password
+    if (matchesUsernameAndPassword(req.body)) {
+        // login the user after a delay
+        setTimeout(function() {
+            req.session.user = 'jane.lane'
 
-      // respond with how we should redirect
-      res.json({ redirect: '/dashboard' })
-    }, 2000)
-  } else {
-    // else send back JSON error
-    // with unprocessable entity
-    // status code
-    res.status(422).json({
-      error: 'Username and/or password is incorrect',
-    })
-  }
+            // respond with how we should redirect
+            res.json({
+                redirect: '/dashboard'
+            })
+        }, 2000)
+    } else {
+        // else send back JSON error
+        // with unprocessable entity
+        // status code
+        res.status(422).json({
+            error: 'Username and/or password is incorrect',
+        })
+    }
 })
 
 app.get('/dashboard', ensureLoggedIn, (req, res) => {
-  res.render('./dashboard.hbs', {
-    user: req.session.user,
-  })
+    res.render('./dashboard.hbs', {
+        user: req.session.user,
+    })
 })
 
 app.get('/users', ensureLoggedIn, (req, res) => {
-  res.render('./users.hbs')
+    res.render('./users.hbs')
 })
 
 app.get('/admin', ensureLoggedIn, (req, res) => {
-  res.render('./admin.hbs')
+    res.render('./admin.hbs')
 })
 
 app.get('/unauthorized', (req, res) => {
-  res.render('./unauthorized.hbs')
+    res.render('./unauthorized.hbs')
 })
 
 app.listen(port)

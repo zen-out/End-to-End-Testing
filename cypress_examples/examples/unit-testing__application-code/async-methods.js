@@ -4,9 +4,9 @@
  * @returns {Promise<void>} returns a Promise
  */
 const delay = (ms) => {
-  return new Promise((resolve) => {
-    setTimeout(resolve, ms)
-  })
+    return new Promise((resolve) => {
+        setTimeout(resolve, ms)
+    })
 }
 
 /**
@@ -15,7 +15,7 @@ const delay = (ms) => {
  * @returns {Promise<string>} reversed string
  */
 export const reverseString = (s) => {
-  return delay(1000).then(() => s.split('').reverse().join(''))
+    return delay(1000).then(() => s.split('').reverse().join(''))
 }
 
 /**
@@ -26,7 +26,7 @@ export const reverseString = (s) => {
  * @example await twice('foo') // 'foofoo'
  */
 export const twice = async (s) => {
-  await delay(500)
+    await delay(500)
 
-  return s + s
+    return s + s
 }

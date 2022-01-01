@@ -1,0 +1,8 @@
+{
+  "files.exclude": {
+    "testing-dom__page-source": true,
+    "testing-dom__pagination": true,
+    "blogs__application-actions": true
+  },
+  "workspace.isHidden": false
+}
