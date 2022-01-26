@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>u ball-er</title>
+  <meta name="description" content="" />
+  <link rel="icon" type="image/x-icon" href="https://www.dropbox.com/s/unb7kozlrbox72t/favicon.ico?raw=1">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- JQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous"></script>
+  <!-- Axios -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.9.1/axios.js'
+    integrity='sha512-Kg0CewqPNO/ziOJuCq5eyl3P/V6OLz/Lb1I2m+yKS3lHZcGVFN/KOew18rWP+kTsL7haYdaqGjwHQCZrN0heLQ=='
+    crossorigin='anonymous'></script>
+  <!-- Handlebars -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.0/css/all.css" />
+  <!-- Hover -->
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover.css'
+    integrity='sha512-Qg72y9f1a3aVc1FVnjq5YURLOOG8fDKQjMnhxYaZgBz4nIVjpVOBUtuMMMqkZPS1FlVrzzEBXq2sM6Qp1zen/Q=='
+    crossorigin='anonymous' />
+  <!-- Checkboxes -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pretty-checkbox/3.0.3/pretty-checkbox.css"
+    integrity="sha512-Ja4BFx806Br/z9b1Eu0zBl9qkDZUkVpQESR9bDol5FoGWWiuTYy/m9M/YVFIWAGbqEgkYkyZxmnS0vos0ncZgw=="
+    crossorigin="anonymous" />
+  <!-- Animate.css -->
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.css'
+    integrity='sha512-phGxLIsvHFArdI7IyLjv14dchvbVkEDaH95efvAae/y2exeWBQCQDpNFbOTdV1p4/pIa/XtbuDCnfhDEIXhvGQ=='
+    crossorigin='anonymous' />
+  <!-- Bulma -->
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.css'
+    integrity='sha512-7VGuxKU1BFMmA+dC7NiW8jF0YOIe6bibjUBr42unVtEsI/UYzXMS3nkgNvmsY4yqauxeiEs4bXF6fPLsCuxN/A=='
+    crossorigin='anonymous' />
+  <style>
+    .myRed {
+      background-color: #fcf1f2 !important;
+      /* color: #f783a6 !important; */
+      color: rgb(241, 75, 75) !important;
+    }
+
+    .myBlush {
+      background-color: hsl(320 89% 96%) !important;
+      color: hsl(320 86% 62%) !important;
+    }
+
+    .lightPink {
+      background-color: hsl(330 89% 96%) !important;
+      color: hsl(330 86% 62%) !important;
+    }
+
+    .myOrange {
+      background-color: hsl(10 89% 96%) !important;
+      color: hsl(20 91% 62%) !important;
+    }
+
+    .myYellow {
+      background-color: hsl(40 89% 96%) !important;
+      color: hsl(44 86% 62%) !important;
+    }
+
+    .myDarkGreen {
+      background-color: hsl(170 89% 96%) !important;
+      color: rgb(30, 207, 178) !important;
+    }
+
+    .myGreen {
+      background-color: #f2fbf7 !important;
+      color: #71cf9e !important;
+    }
+
+    .myDarkBlue {
+      background-color: hsl(240 89% 96%) !important;
+      color: hsl(240 86% 62%) !important;
+    }
+
+
+    .myBlue {
+      background-color: hsl(200 92% 96%) !important;
+      color: hsl(200 91% 62%) !important;
+    }
+
+    .myTeal {
+      border: 0px solid #78dcf9 !important;
+      background-color: #eefafe !important;
+      color: #5dd0f7 !important;
+    }
+
+    .myPurple {
+      background-color: #efecfe !important;
+      color: #6f57e5 !important;
+    }
+
+    .myBlush {
+      background-color: #feecf2 !important;
+      color: #e55787 !important;
+    }
+
+    .myPink {
+      background-color: hsl(290 89% 96%) !important;
+      color: hsl(290 86% 62%) !important;
+    }
+  </style>
+
+  <script src="table.js"></script>
+  <link rel="stylesheet" href="table.css" />
+
+  <link rel="stylesheet" href="styles.css" />
+  <script src="index.js"></script>
+</head>
+
+<body>
+  1. This should be a clear index as to how you should
+  2. Create the processes.
+  3. table
+  classnameTrigger classNameOutput function
+
+  <div class="tile">
+    <div class="table-container" style="overflow-y: scroll; ">
+      <div class="table__wrapper">
+        <table id="problem_table" class="table expand-table" aria-label="table">
+          {{!-- <table id="problem_table" class="table expand-table draggable-table" aria-label="table"> --}}
+          <thead>
+            <tr style="box-sizing: content-box;">
+              <!-- All sortables must have aria-sort -->
+              <th>1. check to start</th>
+              <th id="drag" aria-sort="none">importance, status</th>
+              <th id="status" aria-sort="none">hourglass</th>
+              <th id="problem" aria-sort="none">problem</th>
+              <th id="whatshouldbe" aria-sort="none">what should be</th>
+              <th id="whatactuallyis" aria-sort="none">what actually is</th>
+              <th id="hypothesis" aria-sort="none">hypothesis</th>
+              <th id="plan" aria-sort="none">plan</th>
+              <th id="actions" class="u-align--right">Actions</th>
+              <th aria-hidden="true">
+                <!-- hidden empty cell required for validation -->
+              </th>
+            </tr>
+          </thead>
+          <tbody class="show_problem_all eachRow">
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- Goal:  Time:  Repository: -->
+    <!-- Sections -->
+    <!-- Sections -->
+</body>
+
+</html>
